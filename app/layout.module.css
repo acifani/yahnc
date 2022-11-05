@@ -10,17 +10,32 @@
   );
 }
 
-.header h1,
+.header div,
 .footer p {
   padding: 1rem;
   background-color: var(--background-color);
 }
 
 .main,
-.header h1,
+.header div,
 .footer p {
   margin: 0 auto;
   max-width: 980px;
+}
+
+.header h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.header menu {
+  font-size: 1.25rem;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-bottom: 0;
+  gap: 1em;
 }
 
 .main {

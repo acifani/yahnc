@@ -14,5 +14,5 @@ async function fetchPosts(
 
 export default async function Home() {
   const posts = await fetchPosts('news', 1);
-  return <PostList posts={posts} />;
+  return <PostList posts={posts} list="news" page={1} />;
 }

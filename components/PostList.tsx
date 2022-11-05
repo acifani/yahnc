@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ItemLink } from './ItemLink';
+import css from './PostList.module.css';
 
 export interface Post {
   comments_count: number;
@@ -14,7 +15,16 @@ export interface Post {
   user?: string | null;
 }
 
-export function PostList({ posts }: { posts: Post[] }) {
+export function PostList({
+  posts,
+  page,
+  list,
+}: {
+  posts: Post[];
+  page: number;
+  list: string;
+}) {
+  console.log({ posts, page, list });
   return (
     <>
       {posts.map((post) => (
@@ -33,6 +43,12 @@ export function PostList({ posts }: { posts: Post[] }) {
           </p>
         </article>
       ))}
+      <div className={css.pagination}>
+        {page > 1 && (
+          <Link href={`/${list}/${page - 1}`}>⏪ Previous page</Link>
+        )}{' '}
+        |{page < 10 && <Link href={`/${list}/${page + 1}`}>Next page ⏩</Link>}
+      </div>
     </>
   );
 }

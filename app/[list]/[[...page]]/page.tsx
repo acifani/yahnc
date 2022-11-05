@@ -19,12 +19,21 @@ export default async function List({
 }: {
   params: { list: string; page?: string };
 }) {
-  if (!lists.includes(params.list)) {
+  if (
+    !lists.includes(params.list) ||
+    (params.page && isNaN(Number(params.page)))
+  ) {
     notFound();
   }
 
   const posts = await fetchPosts(params.list, params.page || 1);
-  return <PostList posts={posts} />;
+  return (
+    <PostList
+      posts={posts}
+      list={params.list}
+      page={Number(params.page || 1)}
+    />
+  );
 }
 
 export async function generateStaticParams() {

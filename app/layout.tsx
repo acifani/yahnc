@@ -12,9 +12,25 @@ export default function RootLayout({
       <head />
       <body>
         <header className={css.header}>
-          <h1>
-            <Link href="/">Yet Another Hacker News Client</Link>
-          </h1>
+          <div>
+            <h1>
+              <Link href="/">Yet Another Hacker News Client</Link>
+            </h1>
+            <menu>
+              <li>
+                <Link href="/news">News</Link>
+              </li>
+              <li>
+                <Link href="/ask">Ask</Link>
+              </li>
+              <li>
+                <Link href="/show">Show</Link>
+              </li>
+              <li>
+                <Link href="/jobs">Jobs</Link>
+              </li>
+            </menu>
+          </div>
         </header>
         <main className={css.main}>{children}</main>
         <footer className={css.footer}>
