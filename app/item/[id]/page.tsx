@@ -23,7 +23,7 @@ interface Item {
 
 async function fetchItem(id: string): Promise<Item> {
   const res = await fetch(`https://api.hnpwa.com/v0/item/${id}.json`, {
-    next: { revalidate: 3600 },
+    next: { revalidate: 300 },
   });
 
   const json = await res.json();

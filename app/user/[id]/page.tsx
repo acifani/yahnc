@@ -11,7 +11,7 @@ interface User {
 
 async function getUser(id: string): Promise<User> {
   const res = await fetch(`https://api.hnpwa.com/v0/user/${id}.json`, {
-    next: { revalidate: 3600 },
+    next: { revalidate: 600 },
   });
 
   const json = await res.json();
