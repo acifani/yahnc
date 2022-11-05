@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import { SafeHTML } from '../../../components/SafeHTML';
 
 interface User {
   about?: string;
@@ -34,7 +35,7 @@ export default async function User({ params }: { params: { id: string } }) {
         <strong>Created:</strong> {user.created}
       </p>
       <p>
-        <strong>About:</strong> {user.about}
+        <strong>About:</strong> <SafeHTML html={user.about} />
       </p>
     </>
   );

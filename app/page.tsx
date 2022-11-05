@@ -34,7 +34,12 @@ export default async function Home() {
           </h2>
           <p>
             {post.points} points by{' '}
-            <Link href={`/user/${post.user}`}>{post.user}</Link> {post.time_ago}
+            <Link href={`/user/${post.user}`}>{post.user}</Link> {post.time_ago}{' '}
+            {post.comments_count > 0 && (
+              <Link href={`/item/${post.id}`}>
+                {post.comments_count} comments
+              </Link>
+            )}
           </p>
         </article>
       ))}
