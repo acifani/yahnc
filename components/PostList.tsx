@@ -24,7 +24,6 @@ export function PostList({
   page: number;
   list: string;
 }) {
-  console.log({ posts, page, list });
   return (
     <>
       {posts.map((post) => (
