@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { SafeHTML } from '../../../components/SafeHTML';
 
 interface Item {
@@ -30,6 +31,10 @@ async function fetchItem(id: string): Promise<Item> {
 
 export default async function ItemPage({ params }: { params: { id: string } }) {
   const item = await fetchItem(params.id);
+
+  if (item == null) {
+    notFound();
+  }
 
   return (
     <>
