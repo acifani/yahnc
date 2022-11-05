@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { ItemLink } from '../../../components/ItemLink';
 import { SafeHTML } from '../../../components/SafeHTML';
 
 interface Item {
@@ -38,10 +39,9 @@ export default async function ItemPage({ params }: { params: { id: string } }) {
 
   return (
     <>
-      <h1>{item.title}</h1>
-      <p>
-        <a href={item.url}>{item.url}</a>
-      </p>
+      <h1>
+        <ItemLink id={item.id} title={item.title} url={item.url} />
+      </h1>
       {item.content && <SafeHTML html={item.content} />}
       {item.points} points by{' '}
       <Link href={`/user/${item.user}`}>{item.user}</Link> | {item.time_ago} |{' '}

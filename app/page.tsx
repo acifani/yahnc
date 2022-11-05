@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ItemLink } from '../components/ItemLink';
 
 interface Post {
   comments_count: number;
@@ -30,7 +31,7 @@ export default async function Home() {
       {posts.map((post) => (
         <article key={post.id}>
           <h2>
-            <a href={post.url}>{post.title}</a>
+            <ItemLink id={post.id} title={post.title} url={post.url} />
           </h2>
           <p>
             {post.points} points by{' '}

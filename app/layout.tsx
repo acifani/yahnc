@@ -1,4 +1,6 @@
+import Link from 'next/link';
 import './globals.css';
+import css from './layout.module.css';
 
 export default function RootLayout({
   children,
@@ -9,11 +11,13 @@ export default function RootLayout({
     <html lang="en">
       <head />
       <body>
-        <header>
-          <h1>Yet Another Hacker News Client</h1>
+        <header className={css.header}>
+          <h1>
+            <Link href="/">Yet Another Hacker News Client</Link>
+          </h1>
         </header>
-        <main>{children}</main>
-        <footer>
+        <main className={css.main}>{children}</main>
+        <footer className={css.footer}>
           <p>
             Made with ❤️ by{' '}
             <a href="https://alessandrocifani.com">Alessandro Cifani</a>. Source

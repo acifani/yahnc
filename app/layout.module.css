@@ -1,0 +1,28 @@
+.header,
+.footer {
+  padding: 2rem;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 8px,
+    currentcolor 8px,
+    currentcolor 10px
+  );
+}
+
+.header h1,
+.footer p {
+  padding: 1rem;
+  background-color: var(--background-color);
+}
+
+.main,
+.header h1,
+.footer p {
+  margin: 0 auto;
+  max-width: 980px;
+}
+
+.main {
+  padding: 1rem;
+}
