@@ -2,6 +2,11 @@ import Link from 'next/link';
 import './globals.css';
 import css from './layout.module.css';
 
+export const metadata = {
+  title: 'Yet Another Hacker News Client',
+  description: 'YAHNC - Yet Another Hacker News Client',
+};
+
 export default function RootLayout({
   children,
 }: {
