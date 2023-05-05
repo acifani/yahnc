@@ -5,7 +5,7 @@ const lists = ['news', 'ask', 'show', 'jobs'];
 
 async function fetchPosts(
   list: string,
-  page: string | number
+  page: string | number,
 ): Promise<Post[]> {
   const res = await fetch(`https://api.hnpwa.com/v0/${list}/${page}.json`, {
     next: { revalidate: 300 },
@@ -34,17 +34,4 @@ export default async function List({
       page={Number(params.page || 1)}
     />
   );
-}
-
-export async function generateStaticParams() {
-  const prerenderPages = ['', '1', '2'];
-  const staticParams = [];
-
-  for (const list of lists) {
-    for (const page of prerenderPages) {
-      staticParams.push({ list, page: [page] });
-    }
-  }
-
-  return staticParams;
 }
