@@ -32,8 +32,13 @@ export function PostList({
             <ItemLink id={post.id} title={post.title} url={post.url} />
           </h2>
           <p>
-            {post.points} points by{' '}
-            <Link href={`/user/${post.user}`}>{post.user}</Link> {post.time_ago}{' '}
+            {post.points != null && `${post.points} points `}
+            {post.user && (
+              <>
+                by <Link href={`/user/${post.user}`}>{post.user}</Link>{' '}
+              </>
+            )}
+            {post.time_ago}{' '}
             {post.comments_count > 0 && (
               <Link href={`/item/${post.id}`}>
                 {post.comments_count} comments

@@ -34,9 +34,12 @@ export default async function User({ params }: { params: { id: string } }) {
       <p>
         <strong>Created:</strong> {user.created}
       </p>
-      <p>
-        <strong>About:</strong> <SafeHTML html={user.about} />
-      </p>
+      {user.about && (
+        <div style={{ display: 'inline' }}>
+          <strong>About</strong>
+          <SafeHTML html={user.about} />
+        </div>
+      )}
     </>
   );
 }

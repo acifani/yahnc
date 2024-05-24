@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import './globals.css';
 import css from './layout.module.css';
+import type { Metadata } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Yet Another Hacker News Client',
   description: 'YAHNC - Yet Another Hacker News Client',
 };
