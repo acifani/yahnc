@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ItemLink } from '../../../components/ItemLink';
 import { SafeHTML } from '../../../components/SafeHTML';
+import { HideButton } from './HideButton';
 
 interface Item {
   comments_count: number;
@@ -60,13 +61,15 @@ function Comment({ comment }: { comment: Item }) {
   return (
     <li key={comment.id}>
       <Link href={`/user/${comment.user}`}>{comment.user}</Link>{' '}
-      {comment.time_ago}:
-      <SafeHTML html={comment.content} />
-      <ul>
-        {comment.comments.map((c) => (
-          <Comment key={c.id} comment={c} />
-        ))}
-      </ul>
+      {comment.time_ago}{' '}
+      <HideButton>
+        <SafeHTML html={comment.content} />
+        <ul>
+          {comment.comments.map((c) => (
+            <Comment key={c.id} comment={c} />
+          ))}
+        </ul>
+      </HideButton>
     </li>
   );
 }
