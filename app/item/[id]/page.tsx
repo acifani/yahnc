@@ -31,8 +31,11 @@ async function fetchItem(id: string): Promise<Item> {
   return json;
 }
 
-export default async function ItemPage({ params }: { params: { id: string } }) {
-  const item = await fetchItem(params.id);
+export default async function ItemPage(props: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await props.params;
+  const item = await fetchItem(id);
 
   if (item == null) {
     notFound();

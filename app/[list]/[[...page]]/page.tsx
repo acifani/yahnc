@@ -14,11 +14,10 @@ async function fetchPosts(
   return json;
 }
 
-export default async function List({
-  params,
-}: {
-  params: { list: string; page?: string };
+export default async function List(props: {
+  params: Promise<{ list: string; page?: string }>;
 }) {
+  const params = await props.params;
   if (
     !lists.includes(params.list) ||
     (params.page && isNaN(Number(params.page)))

@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   description: 'YAHNC - Yet Another Hacker News Client',
 };
 
+export const experimental_ppr = true;
+
 export default function RootLayout({
   children,
 }: {

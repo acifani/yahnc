@@ -18,8 +18,9 @@ async function getUser(id: string): Promise<User> {
   return json;
 }
 
-export default async function User({ params }: { params: { id: string } }) {
-  const user = await getUser(params.id);
+export default async function User(props: { params: Promise<{ id: string }> }) {
+  const { id } = await props.params;
+  const user = await getUser(id);
 
   if (user == null) {
     notFound();
